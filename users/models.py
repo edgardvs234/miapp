@@ -59,3 +59,10 @@ class Usuarios(models.Model):
     class Meta:
         managed = False
         db_table = 'usuarios'
+
+class Noticias(models.Model):
+    idnews = models.AutoField(db_column='idNews', primary_key=True)
+    title = models.CharField(max_length=100, blank=True, null=True)
+    teaser = models.CharField(max_length=150, blank=True, null=True)
+    content = models.CharField(max_length=600, blank=True, null=True)
+    imageUrl = models.CharField(db_column='imageUrl', max_length=-1, blank=True, null=True)
