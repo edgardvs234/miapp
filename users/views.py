@@ -7,6 +7,7 @@ from users.models import Pista
 from users.models import Perdidos
 from users.models import Categoria
 from users.models import Denuncia
+from users.models import Noticias
 
 
 import json
@@ -110,6 +111,12 @@ def list(request):
             break
     json_categoriasxperdidos= json.dumps(data)
     return HttpResponse(json_categoriasxperdidos, content_type= 'application/json')
+
+@csrf_exempt
+def news(request):
+    data = Noticias.objects.all().values()
+    json_data= json.dumps(data)
+    return HttpResponse(json_data, content_type= 'application/json')
 
 @csrf_exempt
 def clue(request):
