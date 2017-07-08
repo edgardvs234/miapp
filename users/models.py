@@ -26,10 +26,11 @@ class Perdidos(models.Model):
     lastname = models.CharField(max_length=50, blank=True, null=True)
     edad = models.IntegerField(blank=True, null=True)
     descripcion = models.CharField(max_length=300, blank=True, null=True)
-    coordenada = models.CharField(max_length=50, blank=True, null=True)
     categoria = models.ForeignKey(Categoria, models.DO_NOTHING, db_column='categoria', blank=True, null=True)
     dni = models.CharField(max_length=10, blank=True, null=True)
     imagen = models.CharField(max_length=200, blank=True, null=True)
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -66,3 +67,7 @@ class Noticias(models.Model):
     teaser = models.CharField(max_length=150, blank=True, null=True)
     content = models.CharField(max_length=600, blank=True, null=True)
     imageUrl = models.CharField(db_column='imageUrl', max_length=600, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'noticias'
