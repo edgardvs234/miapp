@@ -115,14 +115,16 @@ def list(request):
 @csrf_exempt
 def news(request):
     data = Noticias.objects.all().values()
+    dict = {}
     newData = []
     len(data)
     for d in data:
         print("Holaaa")
         print(d["title"])
         newData.append(json.dumps(d))
+    dict["ayylmao"] = newData
     #json_data= json.dumps(newData)
-    return HttpResponse(newData, content_type= 'application/json')
+    return HttpResponse(dict["ayylmao"], content_type= 'application/json')
 
 @csrf_exempt
 def clue(request):
