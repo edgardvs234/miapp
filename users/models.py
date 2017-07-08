@@ -65,4 +65,4 @@ class Noticias(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
     teaser = models.CharField(max_length=150, blank=True, null=True)
     content = models.CharField(max_length=600, blank=True, null=True)
-    imageUrl = models.CharField(db_column='imageUrl', max_length=-1, blank=True, null=True)
+    imageUrl = models.CharField(db_column='imageUrl', max_length=600, blank=True, null=True)
