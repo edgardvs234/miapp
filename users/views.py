@@ -118,9 +118,10 @@ def news(request):
     dict = {}
     newData = []
     for d in data:
-        newData.append(json.dumps(d))
+        newData.append(d)
     dict["News"] = newData
-    return HttpResponse(dict, content_type= 'application/json')
+    json_data = json.dumps(dict)
+    return HttpResponse(json_data, content_type= 'application/json')
 
 @csrf_exempt
 def clue(request):
