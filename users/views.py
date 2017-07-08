@@ -121,8 +121,8 @@ def news(request):
         print("Holaaa")
         print(d["title"])
         newData.append(json.dumps(d))
-    json_data= json.dumps(newData)
-    return HttpResponse(json_data, content_type= 'application/json')
+    #json_data= json.dumps(newData)
+    return HttpResponse(newData, content_type= 'application/json')
 
 @csrf_exempt
 def clue(request):
