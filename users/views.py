@@ -115,7 +115,10 @@ def list(request):
 @csrf_exempt
 def news(request):
     data = Noticias.objects.all().values()
-    json_data= json.dumps(data)
+    newData = []
+    for d in data:
+        newData.append(json.dumps(d))
+    json_data= json.dumps(newData)
     return HttpResponse(json_data, content_type= 'application/json')
 
 @csrf_exempt
