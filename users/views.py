@@ -117,6 +117,7 @@ def news(request):
     data = Noticias.objects.all().values()
     newData = []
     for d in data:
+        print(d["title"])
         newData.append(json.dumps(d))
     json_data= json.dumps(newData)
     return HttpResponse(json_data, content_type= 'application/json')
