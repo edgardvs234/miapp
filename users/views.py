@@ -116,7 +116,9 @@ def list(request):
 def news(request):
     data = Noticias.objects.all().values()
     newData = []
+    len(data)
     for d in data:
+        print("Holaaa")
         print(d["title"])
         newData.append(json.dumps(d))
     json_data= json.dumps(newData)
